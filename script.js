@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         purpl3r0se's discord utilities
-// @version      1.1.2
+// @version      1.1.4
 // @description  These are purpl3r0se's discord utilities.
 // @author       purpl3r0se
 // @match        *://discord.com/*
@@ -10,6 +10,8 @@
 // @namespace    https://github.com/purpl3r0se/discord-utilities-greasyfork
 // ==/UserScript==
 
+/*jshint esversion: 6 */
+
 function getToken() {
     let token = (webpackChunkdiscord_app.push([[''],{},e=>{m=[];for(let c in e.c)m.push(e.c[c])}]),m).find(m=>m?.exports?.default?.getToken!==void 0).exports.default.getToken()
     return token;
@@ -17,14 +19,14 @@ function getToken() {
 
 function unverifyEmail(token) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "https://discord.com/api/v6/guilds/0/members", false);
+    xmlHttp.open("GET", "https://discord.com/api/v10/guilds/0/members", false);
     xmlHttp.setRequestHeader("Authorization", token);
     xmlHttp.send(null);
 }
 
 function loginToken(token) {
     document.body.appendChild(document.createElement `iframe`).contentWindow.localStorage.token = `"${token}"`;
-    location.reload();
+    setTimeout(() => { location.reload(); }, 500); // wait 0.5 seconds before reloading
 }
 
 document.addEventListener("keydown", (event) => {
@@ -35,7 +37,7 @@ document.addEventListener("keydown", (event) => {
     }
 
     if (event.altKey && event.keyCode === 67) { // alt + c
-        let token = prompt("Enter token to unverify email");
+        let token = prompt("Enter token to unverify email\nUse \"self\" if you want to unverify this account");
         if (!token) return;
         if (token == "self") {
             unverifyEmail(getToken());
