@@ -1,4 +1,4 @@
-#purpl3r0se's discord utilities
+# purpl3r0se's discord utilities
 
 ------------
 
