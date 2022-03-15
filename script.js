@@ -6,7 +6,7 @@
 // @match        *://discord.com/*
 // @grant        none
 // @run-at       document-start
-// @license      GPLv3
+// @license      GPL-3.0
 // @namespace    https://github.com/purpl3r0se/discord-utilities-greasyfork
 // ==/UserScript==
 
