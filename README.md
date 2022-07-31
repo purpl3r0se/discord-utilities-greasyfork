@@ -10,5 +10,5 @@ My github: https://github.com/purpl3r0se
 
 ## Features
 * Login to token (ALT + A)
-* Unverify email of token (ALT + C) (Enter "self" if you want to unverify the account your on)
+* Unverify email of token (ALT + C) **(PATCHED)** (Enter "self" if you want to unverify the account your on)
 * Get token (ALT + M)
